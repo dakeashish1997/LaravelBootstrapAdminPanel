@@ -12,7 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'role' => \App\Http\Middleware\CheckRole::class,
+            'disable-move-back' => \App\Http\Middleware\DisableMoveBack::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -48,7 +47,7 @@ class User extends Authenticatable
 
     public function hasRole($role)
     {
-        if (in_array($role,explode(',',auth()->user()->role))) {
+        if (in_array($role, explode(',', auth()->user()->role))) {
             return true;
         }
         return false;
