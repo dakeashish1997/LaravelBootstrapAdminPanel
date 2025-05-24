@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('photo')->nullable()->default('https://cdn.queensherainfotech.com/panel/dist/img/avatar5.png');
             $table->string('role')->nullable()->default('user');
+            $table->text('two_factor_secret')->nullable();
+            $table->text('two_factor_recovery_codes')->nullable();
+            $table->timestamp('two_factor_confirmed_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
