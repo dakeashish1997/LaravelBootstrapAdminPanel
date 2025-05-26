@@ -45,8 +45,8 @@ class ResetPasswordController extends Controller
         }
         );
 
-        if ($response == Password::PASSWORD_RESET){
-            $user = User::where('email',$request->email)->first();
+        if ($response == Password::PASSWORD_RESET) {
+            $user = User::where('email', $request->email)->first();
             $user->email_verified_at = Carbon::now();
             $user->save();
         }

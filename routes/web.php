@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('/');
 
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
+
 Auth::routes([
     'login' => true,
     'register' => config('features.update-user-registration'),
@@ -28,6 +32,6 @@ Route::middleware(['auth','disable-move-back'])->middleware(config('features.upd
     });
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/profile', [\App\Http\Controllers\Auth\ProfileController::class, 'profile'])->name('profile');
+    Route::get('/profile', [\App\Http\Controllers\Auth\ProfileController::class, 'profile'])->middleware(['password.confirm'])->name('profile');
     Route::post('/profile/update', [\App\Http\Controllers\Auth\ProfileController::class, 'profileUpdate'])->name('profile.update');
 });
