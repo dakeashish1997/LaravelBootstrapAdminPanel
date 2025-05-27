@@ -3,9 +3,10 @@
 # Configuration
 
 ## Multiple features
+By default, all features are enabled, except email verification and password reset.
 
 ### Update email verification
-If you want to use email verification, you need to set up the mail configuration in the .env file
+If you want to use email verification or password reset feature, you need to set up the mail configuration in the .env file
 ```
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.mailtrap.io
@@ -26,9 +27,18 @@ class User extends Authenticatable implements MustVerifyEmail
 
 ```
 
+and enable feature in .env file. Make sure you have the following lines in your `.env` file:
+
+ 
+```
+FEATURE_UPDATE_EMAIL_VERIFICATION=true
+FEATURE_UPDATE_RESET_PASSWORD=true
+```
+
 ### Update profile photo
 ### Update password
 ### Update 2 factor authentication
 ### Update reset password
 ### Update account deactivation
+
 
